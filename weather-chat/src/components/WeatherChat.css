@@ -1,0 +1,250 @@
+.chat-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.chat-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.chat-header h1 {
+    font-size: clamp(2em, 6vw, 3em);
+    margin: 20px 0;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+}
+
+.chat-header p {
+    color: #888;
+    font-size: clamp(1em, 3vw, 1.2em);
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    width: clamp(60px, 10vw, 80px);
+    height: clamp(60px, 10vw, 80px);
+    margin: 0 auto;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Add styles for when messages are present */
+.has-messages .chat-header {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.has-messages .logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+}
+
+.has-messages .chat-header h1,
+.has-messages .chat-header p {
+    display: none;
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: clamp(10px, 3vw, 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: auto;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 0 clamp(5px, 2vw, 15px);
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 85%;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 18px);
+    border-radius: 15px;
+    background-color: #333;
+    color: #fff;
+    font-size: clamp(14px, 2vw, 16px);
+    word-wrap: break-word;
+}
+
+.message.user .message-content {
+    background-color: #4CAF50;
+}
+
+.message.bot .message-content {
+    background-color: #333;
+}
+
+.input-container {
+    padding: clamp(10px, 3vw, 20px);
+    background-color: #1a1a1a;
+    position: sticky;
+    bottom: 0;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: clamp(8px, 2vw, 10px);
+    margin: 0 auto;
+    max-width: min(800px, 95%);
+}
+
+.ai-icon {
+    width: clamp(25px, 5vw, 30px);
+    height: clamp(25px, 5vw, 30px);
+    min-width: 25px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: clamp(14px, 2vw, 16px);
+    min-width: 0;
+}
+
+input::placeholder {
+    color: #888;
+    opacity: 0.8;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: #4CAF50;
+    font-size: clamp(20px, 4vw, 24px);
+    cursor: pointer;
+    padding: 5px;
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:disabled {
+    color: #666;
+    cursor: not-allowed;
+}
+
+.send-icon {
+    transform: rotate(-45deg);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .chat-header {
+        padding: 15px 10px;
+    }
+
+    .messages-container {
+        padding: 10px;
+    }
+
+    .input-container {
+        padding: 10px;
+    }
+
+    .input-wrapper {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .message-content {
+        max-width: 90%;
+    }
+
+    .chat-header h1 {
+        margin: 5px 0;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 320px) {
+    .input-wrapper {
+        gap: 5px;
+    }
+
+    button {
+        padding: 3px;
+    }
+}
+
+/* For landscape orientation on mobile */
+@media screen and (max-height: 600px) {
+    .chat-header {
+        padding: 20px;
+    }
+
+    .logo {
+        width: clamp(50px, 8vw, 60px);
+        height: clamp(50px, 8vw, 60px);
+        margin-bottom: 20px;
+    }
+
+    .chat-header h1 {
+        margin: 15px 0;
+    }
+}
+
+/* For high-DPI screens */
+@media screen and (min-width: 1440px) {
+    .chat-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+} 
