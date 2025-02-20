@@ -1,0 +1,463 @@
+.chat-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.chat-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.chat-header h1 {
+    font-size: clamp(2em, 6vw, 3em);
+    margin: 20px 0;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+}
+
+.chat-header p {
+    color: #888;
+    font-size: clamp(1em, 3vw, 1.2em);
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    width: clamp(60px, 10vw, 80px);
+    height: clamp(60px, 10vw, 80px);
+    margin: 0 auto;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Add styles for when messages are present */
+.has-messages .chat-header {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.has-messages .logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+}
+
+.has-messages .chat-header h1,
+.has-messages .chat-header p {
+    display: none;
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: clamp(10px, 3vw, 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: auto;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    background-color: #333;
+    color: #fff;
+    white-space: pre-line;
+}
+
+.message.user .message-content {
+    background-color: #4CAF50;
+    text-align: right;
+}
+
+.message.bot .message-content {
+    background-color: #333;
+    text-align: left;
+}
+
+.input-container {
+    padding: clamp(10px, 3vw, 20px);
+    background-color: #1a1a1a;
+    position: sticky;
+    bottom: 0;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: clamp(8px, 2vw, 10px);
+    margin: 0 auto;
+    max-width: min(800px, 95%);
+}
+
+.ai-icon {
+    width: clamp(25px, 5vw, 30px);
+    height: clamp(25px, 5vw, 30px);
+    min-width: 25px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: clamp(14px, 2vw, 16px);
+    min-width: 0;
+}
+
+input::placeholder {
+    color: #888;
+    opacity: 0.8;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: #4CAF50;
+    font-size: clamp(20px, 4vw, 24px);
+    cursor: pointer;
+    padding: 5px;
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:disabled {
+    color: #666;
+    cursor: not-allowed;
+}
+
+.send-icon {
+    transform: rotate(-45deg);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .chat-header {
+        padding: 15px 10px;
+    }
+
+    .messages-container {
+        padding: 10px;
+    }
+
+    .input-container {
+        padding: 10px;
+    }
+
+    .input-wrapper {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .message-content {
+        max-width: 90%;
+    }
+
+    .chat-header h1 {
+        margin: 5px 0;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 320px) {
+    .input-wrapper {
+        gap: 5px;
+    }
+
+    button {
+        padding: 3px;
+    }
+}
+
+/* For landscape orientation on mobile */
+@media screen and (max-height: 600px) {
+    .chat-header {
+        padding: 20px;
+    }
+
+    .logo {
+        width: clamp(50px, 8vw, 60px);
+        height: clamp(50px, 8vw, 60px);
+        margin-bottom: 20px;
+    }
+
+    .chat-header h1 {
+        margin: 15px 0;
+    }
+}
+
+/* For high-DPI screens */
+@media screen and (min-width: 1440px) {
+    .chat-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Add these new styles to your existing CSS */
+.weather-comparison {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.weather-day {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.weather-day.current {
+    background-color: #4CAF50;
+    transform: scale(1.02);
+}
+
+.weather-day h4 {
+    margin: 0 0 4px 0;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.weather-day .date {
+    color: #aaa;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.weather-day .temp {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 8px 0;
+    color: #fff;
+}
+
+.weather-day .condition {
+    color: #ddd;
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
+
+/* Add responsive styles for weather comparison */
+@media screen and (max-width: 600px) {
+    .weather-comparison {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .weather-day {
+        padding: 10px;
+    }
+
+    .weather-day.current {
+        transform: scale(1);
+    }
+}
+
+/* Add emoji styling */
+.weather-day .emoji {
+    font-size: 2em;
+    margin: 8px 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style bullet points */
+.message-content ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.message-content li {
+    margin: 4px 0;
+}
+
+/* Add some animation for emojis */
+.emoji {
+    transition: transform 0.3s ease;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+/* Style the weather cards */
+.weather-day:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Update the weather grid styles */
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.weather-day {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.weather-day.current {
+    background-color: #4CAF50;
+    transform: scale(1.02);
+}
+
+.weather-day h4 {
+    color: #fff;
+    font-size: 1.2em;
+    margin: 0 0 8px 0;
+}
+
+.weather-day .date {
+    color: #aaa;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.weather-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-day .emoji {
+    font-size: 2.5em;
+    margin: 10px 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.weather-day .temp {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.weather-day .condition {
+    color: #ddd;
+    font-size: 1em;
+    text-transform: capitalize;
+}
+
+/* Hover effects */
+.weather-day:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.weather-day:hover .emoji {
+    transform: scale(1.2);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .weather-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .weather-day {
+        padding: 12px;
+    }
+
+    .weather-day.current {
+        transform: none;
+    }
+
+    .weather-content {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .weather-day .emoji {
+        font-size: 2em;
+        height: 40px;
+        margin: 5px 0;
+    }
+} 
